@@ -1,0 +1,5 @@
+package catalystgo.com.cg.cat.ucc;
+
+public enum SocketListener {
+
+}

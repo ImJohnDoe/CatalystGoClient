@@ -1,0 +1,25 @@
+package catalystgo.com.cg.cat.ucc;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+public enum SocketListener {
+	private Queue<String> content = new LinkedList<>();
+
+	public SocketListener(String[] contentArray) {
+		for (String job : contentArray) {
+			content.add(job);
+		}
+		
+		
+		Runnable service = new Runnable() {
+			public void run() {
+				for (;;) {
+
+				}
+			}
+		};
+
+		new Thread(service).start();
+	}
+}
