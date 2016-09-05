@@ -10,6 +10,7 @@ public class GoogleMap : MonoBehaviour
 		Terrain,
 		Hybrid
 	}
+	public bool reloadNow = false;
 	public bool loadOnStart = true;
 	public bool autoLocateCenter = true;
 	public GoogleMapLocation centerLocation;
@@ -19,11 +20,18 @@ public class GoogleMap : MonoBehaviour
 	public bool doubleResolution = false;
 	public GoogleMapMarker[] markers;
 	public GoogleMapPath[] paths;
-	
+
 	void Start() {
 		if(loadOnStart) Refresh();	
 	}
-	
+
+	void Update (){
+		if (reloadNow) {
+			reloadNow = false;
+			Refresh ();
+		}
+	}
+
 	public void Refresh() {
 		if(autoLocateCenter && (markers.Length == 0 && paths.Length == 0)) {
 			Debug.LogError("Auto Center will only work if paths or markers are used.");	
